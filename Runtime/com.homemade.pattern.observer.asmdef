@@ -1,0 +1,16 @@
+{
+    "name": "com.homemade.pattern.observer",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e1786735250f08b48a414c547ec8d895"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
