@@ -6,7 +6,7 @@ namespace com.homemade.pattern.observer
 {
     public class Observer : MonoSingleton<Observer>
     {
-        private Dictionary<string, Action<object>> listeners = new Dictionary<string, Action<object>>();
+        private Dictionary<object, Action<object>> listeners = new Dictionary<object, Action<object>>();
 
         public override void OnDestroy()
         {
@@ -20,7 +20,7 @@ namespace com.homemade.pattern.observer
             listeners.Clear();
         }
 
-        public void RegisterListener(string eventID, Action<object> callback)
+        public void RegisterListener(object eventID, Action<object> callback)
         {
             if (!listeners.ContainsKey(eventID))
                 listeners.Add(eventID, null);
@@ -28,7 +28,7 @@ namespace com.homemade.pattern.observer
             listeners[eventID] += callback;
         }
 
-        public void RemoveListener(string eventID, Action<object> callback)
+        public void RemoveListener(object eventID, Action<object> callback)
         {
             if (!listeners.ContainsKey(eventID)) return;
             if (callback == null) return;
@@ -36,7 +36,7 @@ namespace com.homemade.pattern.observer
             listeners[eventID] -= callback;
         }
 
-        public void PostEvent(string eventID, object param = null)
+        public void PostEvent(object eventID, object param = null)
         {
             if (!listeners.ContainsKey(eventID)) return;
 
