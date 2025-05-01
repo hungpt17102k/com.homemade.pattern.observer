@@ -4,14 +4,12 @@ using com.homemade.pattern.singleton;
 
 namespace com.homemade.pattern.observer
 {
-    public class Observer : MonoSingleton<Observer>
+    public class Observer : LiveSingleton<Observer>
     {
         private Dictionary<object, Action<object>> listeners = new Dictionary<object, Action<object>>();
 
         public override void OnDestroy()
         {
-            base.OnDestroy();
-
             ClearAllListener();
         }
 
