@@ -8,9 +8,10 @@ namespace com.homemade.pattern.observer
     {
         private Dictionary<object, Action<object>> listeners = new Dictionary<object, Action<object>>();
 
-        public override void OnDestroy()
+        protected override void OnDestroy()
         {
             ClearAllListener();
+            base.OnDestroy();
         }
 
         public void ClearAllListener()
